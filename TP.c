@@ -25,7 +25,6 @@ int main()
     struct Cliente clientes[10];
     char nombreingresado[50];
     int opcion, indiceEncontrado, indice, cantidadOperaciones;
-    int intentoInicioSesion = 3;
     bool bucleCajero = true;
 
     strcpy(clientes[0].nombre, "Juan");
@@ -139,7 +138,7 @@ int main()
 
         if (cantidadOperaciones == 10)
         {
-            printf("Superaste el l%cmite de operaciones. Se ha cerrado la sesi%cn\n\n", 161, 162);
+            printf("Superaste el l%cmite de operacionesk. Se ha cerrado la sesi%cn\n\n", 161, 162);
         }
 
     } while (bucleCajero);
@@ -150,9 +149,9 @@ int main()
 int login(struct Cliente array[10])
 {
     int contadorPassword, numCuentaIngresado, indice, contraIngresada, i;
-    int encontradoNroCuenta = 0;
-    int encontradoPassword = 0;
-    int encontradoCuentaActivo = 0;
+    bool encontradoNroCuenta = false;
+    bool encontradoPassword = false;
+    bool encontradoCuentaActivo = false;
 
     do
     {
@@ -162,11 +161,11 @@ int login(struct Cliente array[10])
         {
             if (array[i].numCuenta == numCuentaIngresado)
             {
-                encontradoNroCuenta = 1;
+                encontradoNroCuenta = true;
                 indice = i;
                 if (strcmp(array[i].estado, "activo") == 0)
                 {
-                    encontradoCuentaActivo = 1;
+                    encontradoCuentaActivo = true;
                 }
                 else
                 {
@@ -174,21 +173,21 @@ int login(struct Cliente array[10])
                 }
             }
         }
-    } while (encontradoNroCuenta == 0 && encontradoCuentaActivo == 0);
+    } while (!encontradoNroCuenta && !encontradoCuentaActivo);
 
-    if (encontradoNroCuenta == 1 && encontradoCuentaActivo == 1)
+    if (encontradoNroCuenta && encontradoCuentaActivo)
     {
         printf("Ingrese la contrase%ca\n", 164);
         scanf("%i", &contraIngresada);
         contadorPassword = 1;
-        while (encontradoPassword == 0 && contadorPassword < 3)
+        while (!encontradoPassword && contadorPassword < 3)
         {
             if (array[indice].password == contraIngresada)
             {
-                encontradoPassword = 1;
+                encontradoPassword = true;
             }
 
-            if (encontradoPassword == 0)
+            if (!encontradoPassword)
             {
                 printf("Ingrese la contrase%ca\n", 164);
                 scanf("%i", &contraIngresada);
@@ -197,7 +196,7 @@ int login(struct Cliente array[10])
         }
     }
 
-    if (encontradoPassword == 0 && encontradoCuentaActivo == 1)
+    if (!encontradoPassword && encontradoCuentaActivo)
     {
         strcpy(array[indice].estado, "bloqueado");
         printf("Contrase%ca incorrecta. Cuenta bloqueada\n", 164);
@@ -229,7 +228,7 @@ void extraccion(int indiceEncontrado, struct Cliente array[10])
     scanf("%f", &monto);
     while (monto > array[indiceEncontrado].saldo)
     {
-        printf("El monto que ingres%f supera su saldo. Ingrese otro por favor\n", 162);
+        printf("El monto que ingres%c supera su saldo. Ingrese otro por favor\n", 162);
         scanf("%f", &monto);
     }
 
@@ -243,9 +242,9 @@ void consultarSaldo(int indiceEncontrado, struct Cliente array[10])
 
 void transferencia(int indiceEncontrado, struct Cliente array[10])
 {
-    int numCuentaTransferido, encontradoNroCuenta, indiceTransferencia;
+    int numCuentaTransferido, indiceTransferencia;
     float monto;
-    encontradoNroCuenta = 0;
+    bool encontradoNroCuenta = false;
 
     do
     {
@@ -255,11 +254,11 @@ void transferencia(int indiceEncontrado, struct Cliente array[10])
         {
             if (array[i].numCuenta == numCuentaTransferido)
             {
-                encontradoNroCuenta = 1;
+                encontradoNroCuenta = true;
                 indiceTransferencia = i;
             }
         }
-    } while (encontradoNroCuenta == 0);
+    } while (!encontradoNroCuenta);
 
     printf("Ingrese el monto a transferirle\n");
     scanf("%f", &monto);
