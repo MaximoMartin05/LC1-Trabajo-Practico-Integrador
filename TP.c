@@ -219,8 +219,6 @@ void deposito(int indiceEncontrado, struct Cliente array[10])
     }
 
     array[indiceEncontrado].saldo += monto;
-
-   
 }
 
 void extraccion(int indiceEncontrado, struct Cliente array[10])
@@ -236,8 +234,6 @@ void extraccion(int indiceEncontrado, struct Cliente array[10])
     }
 
     array[indiceEncontrado].saldo -= monto;
-
-    
 }
 
 void consultarSaldo(int indiceEncontrado, struct Cliente array[10])
@@ -247,7 +243,7 @@ void consultarSaldo(int indiceEncontrado, struct Cliente array[10])
 
 void transferencia(int indiceEncontrado, struct Cliente array[10])
 {
-    int numCuentaTransferido, encontradoNroCuenta;
+    int numCuentaTransferido, encontradoNroCuenta, indiceTransferencia;
     float monto;
     encontradoNroCuenta = 0;
 
@@ -260,18 +256,19 @@ void transferencia(int indiceEncontrado, struct Cliente array[10])
             if (array[i].numCuenta == numCuentaTransferido)
             {
                 encontradoNroCuenta = 1;
+                indiceTransferencia = i;
             }
         }
     } while (encontradoNroCuenta == 0);
 
     printf("Ingrese el monto a transferirle\n");
     scanf("%f", &monto);
-    while (monto <= 0  || monto > array[indiceEncontrado].saldo)
+    while (monto <= 0 || monto > array[indiceEncontrado].saldo)
     {
         printf("Ingrese un monto mayor a 0 y que no supere su saldo \n");
         scanf("%f", &monto);
     }
-    array[numCuentaTransferido].saldo += monto;
+    array[indiceTransferencia].saldo += monto;
     array[indiceEncontrado].saldo -= monto;
 }
 
