@@ -150,5 +150,5 @@ void main()
         }
     } while (opcion != 6);
     
-    } while
+    } while();
 }
