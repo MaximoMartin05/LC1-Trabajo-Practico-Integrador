@@ -111,6 +111,7 @@ int main()
                     printf("Realizar un Dep%csito\n", 162);
                     deposito(indiceEncontrado, clientes);
                     cantidadOperaciones++;
+                    break;
                 case 2:
                     printf(" Realizar una Extracci%cn\n", 162);
                     extraccion(indiceEncontrado, clientes);
@@ -208,7 +209,7 @@ int login(struct Cliente array[10])
 void deposito(int indiceEncontrado, struct Cliente array[10])
 {
     float monto;
-    printf("Su saldo actual es de %.2f\n", array[indiceEncontrado].saldo);
+   
     printf("Ingrese el monto del dep%csito\n", 162);
     scanf("%f", &monto);
     while (monto <= 0)
@@ -219,13 +220,13 @@ void deposito(int indiceEncontrado, struct Cliente array[10])
 
     array[indiceEncontrado].saldo += monto;
 
-    printf("Su saldo luego del dep%csito es de %.2f\n", 162, array[indiceEncontrado].saldo);
+   
 }
 
 void extraccion(int indiceEncontrado, struct Cliente array[10])
 {
     float monto;
-    printf("Su saldo actual es de %.2f\n", array[indiceEncontrado].saldo);
+   
     printf("Ingrese el monto del extracci%cn\n", 162);
     scanf("%f", &monto);
     while (monto > array[indiceEncontrado].saldo)
@@ -236,7 +237,7 @@ void extraccion(int indiceEncontrado, struct Cliente array[10])
 
     array[indiceEncontrado].saldo -= monto;
 
-    printf("Su saldo luego del extraci%cn es de %.2f\n", 162, array[indiceEncontrado].saldo);
+    
 }
 
 void consultarSaldo(int indiceEncontrado, struct Cliente array[10])
@@ -265,9 +266,9 @@ void transferencia(int indiceEncontrado, struct Cliente array[10])
 
     printf("Ingrese el monto a transferirle\n");
     scanf("%f", &monto);
-    while (monto <= 0)
+    while (monto <= 0  || monto > array[indiceEncontrado].saldo)
     {
-        printf("Ingrese un monto mayor a 0 para el dep%csito\n", 162);
+        printf("Ingrese un monto mayor a 0 y que no supere su saldo \n");
         scanf("%f", &monto);
     }
     array[numCuentaTransferido].saldo += monto;
