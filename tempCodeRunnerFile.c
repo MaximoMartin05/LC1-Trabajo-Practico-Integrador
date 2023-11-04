@@ -1,1 +1,1 @@
-rd++;
+rray[indice].estado, "bloqueado"
