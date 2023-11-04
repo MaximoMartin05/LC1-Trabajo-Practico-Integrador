@@ -90,69 +90,6 @@ int main()
 
     do
     {
-        printf("Ingrese su numero de cuenta:\n");
-        scanf("%i", &numCuentaIngresado);
-        while (i < 10 && !encontradoCuenta )
-        {
-            if (clientes[i].numCuenta == numCuentaIngresado)
-            {
-                encontradoCuenta = true;
-                printf("Ingrese la contrase%ca\n",165);
-                scanf("%i", &contraIngresada);
-
-                while ( !encontradoPassword && contadorPassword<3)
-                {
-                    if (clientes[i].password == contraIngresada)
-                    {
-                        encontradoPassword = true;    
-                    }
-                    contadorPassword++;
-                    printf("Ingrese la contrase%ca\n",165);
-                    scanf("%i", &contraIngresada);
-                }
-                
-
-            }
-            i++;
-        }
-        
-    
-    do
-    {
-
-
-
-        printf("1. Realizar un Depósito\n");
-        printf("2. Realizar una Extracción\n");
-        printf("3. Consultar el Saldo de la Cuenta\n");
-        printf("4. Realizar una Transferencia entre Cuentas\n");
-        printf("5. Mostrar cantidad de Operaciones Realizadas y Saldo Actual\n");
-        printf("6. Salir de la Sesión\n");
-        
-        
-        switch (opcion)
-        {
-        case 1:
-            printf("Realizar un Depósito\n");
-
-            break;
-        case 2:
-            printf(" Realizar una Extracción\n");
-            break;
-        case 3:
-            printf("Consultar el Saldo de la Cuenta\n");
-            break;
-        case 4:
-             printf("Realizar una Transferencia entre Cuentas\n");
-            break;
-        case 5:
-             printf("Mostrar cantidad de Operaciones Realizadas y Saldo Actual\n");
-            break;
-        
-        }
-    } while (opcion != 6);
-    
-    } while();
         cantidadOperaciones = 0;
         indiceEncontrado = login(clientes);
 
