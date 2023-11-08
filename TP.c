@@ -1,3 +1,9 @@
+// PRÁCTICO INTEGRADOR DE LABORATORIO COMISIÓN 1TUP9
+// INTEGRANTEES DEL GRUPO:
+// - Máximo Martin
+// - Mario Massonnat
+// - Francisco Palena
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
