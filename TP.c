@@ -102,6 +102,7 @@ int main()
         {
             do
             {
+                printf("Hola %s. Que operaci%cn desea realizar?\n", clientes[indiceEncontrado].nombre, 162);
                 printf("1. Realizar un Dep%csito\n", 162);
                 printf("2. Realizar una Extracci%cn\n", 162);
                 printf("3. Consultar el Saldo de la Cuenta\n");
@@ -243,7 +244,7 @@ void extraccion(int indiceEncontrado, struct Cliente array[10])
 
 void consultarSaldo(int indiceEncontrado, struct Cliente array[10])
 {
-    printf("Su saldo actual es de %.2f\n", array[indiceEncontrado].saldo);
+    printf("Su saldo actual es de %.2f\n\n", array[indiceEncontrado].saldo);
 }
 
 void transferencia(int indiceEncontrado, struct Cliente array[10])
@@ -266,11 +267,11 @@ void transferencia(int indiceEncontrado, struct Cliente array[10])
         }
     } while (!encontradoNroCuenta);
 
-    printf("Ingrese el monto a transferirle\n");
+    printf("Ingrese el monto a transferirle a %s\n\n", array[indiceTransferencia].nombre);
     scanf("%f", &monto);
     while (monto <= 0 || monto > array[indiceEncontrado].saldo)
     {
-        printf("Ingrese un monto mayor a 0 y que no supere su saldo \n");
+        printf("Ingrese un monto mayor a 0 y que no supere su saldo \n\n");
         scanf("%f", &monto);
     }
     array[indiceTransferencia].saldo += monto;
