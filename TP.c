@@ -244,7 +244,7 @@ void extraccion(int indiceEncontrado, struct Cliente array[10])
 
 void consultarSaldo(int indiceEncontrado, struct Cliente array[10])
 {
-    printf("Su saldo actual es de %.2f\n\n", array[indiceEncontrado].saldo);
+    printf("Su saldo actual es de $%.2f\n\n", array[indiceEncontrado].saldo);
 }
 
 void transferencia(int indiceEncontrado, struct Cliente array[10])
@@ -281,5 +281,5 @@ void transferencia(int indiceEncontrado, struct Cliente array[10])
 void mostrarOpYSaldo(int indiceEncontrado, struct Cliente array[10], int cantidadOperaciones)
 {
     printf("La cantidad de operaciones fueron: %i\n", cantidadOperaciones);
-    printf("Su saldo actual es de %.2f\n", array[indiceEncontrado].saldo);
+    printf("Su saldo actual es de $%.2f\n", array[indiceEncontrado].saldo);
 }
