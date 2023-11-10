@@ -1,4 +1,4 @@
-// PRÁCTICO INTEGRADOR DE LABORATORIO COMISIÓN 1TUP9
+// 2023 LC1 - TPI Cajero Automático
 // INTEGRANTEES DEL GRUPO:
 // - Máximo Martin
 // - Mario Massonnat
