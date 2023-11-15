@@ -29,7 +29,7 @@ int main()
 {
 
     struct Cliente clientes[10];
-    char nombreingresado[50];
+    //char nombreingresado[50];
     int opcion, indiceEncontrado, indice, cantidadOperaciones;
     bool bucleCajero = true;
 
