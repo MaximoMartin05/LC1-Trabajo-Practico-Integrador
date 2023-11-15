@@ -29,8 +29,8 @@ int main()
 {
 
     struct Cliente clientes[10];
-    //char nombreingresado[50];
-    int opcion, indiceEncontrado, indice, cantidadOperaciones;
+
+    int opcion, indiceEncontrado, cantidadOperaciones;
     bool bucleCajero = true;
 
     strcpy(clientes[0].nombre, "Juan");
@@ -215,7 +215,7 @@ int login(struct Cliente array[10])
 void deposito(int indiceEncontrado, struct Cliente array[10])
 {
     float monto;
-   
+
     printf("Ingrese el monto del dep%csito\n", 162);
     scanf("%f", &monto);
     while (monto <= 0)
@@ -230,7 +230,7 @@ void deposito(int indiceEncontrado, struct Cliente array[10])
 void extraccion(int indiceEncontrado, struct Cliente array[10])
 {
     float monto;
-   
+
     printf("Ingrese el monto del extracci%cn\n", 162);
     scanf("%f", &monto);
     while (monto > array[indiceEncontrado].saldo)
